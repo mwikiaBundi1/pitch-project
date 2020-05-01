@@ -6,4 +6,18 @@ from datetime import datetime
 
 @login_manager.user_loader
 
-def user_load(user_id)
+def user_load(user_id):
+    return User.query.get(int(user_id))
+
+
+class User(UserMixin, db.Model):
+    __table__ = 'users'
+    id = db.Column(db.Integer, primary_key = True)
+    author = db.Column(db.String(255))
+    email = db.Column(db.String(255), unique = True, index = True)
+    password_hash = db.Column(db.String(255))
+    bio = db.Column(db.String(255))
+    profile_pic_path = db.Column(db.String(255))
+    pitch = db.relationship('1, 2 and .. GO!', backref= author, lazy = 'dynamic')
+    comments = db.relationship('Say Something', backref=author, lazy= 'dynamic')
+    
