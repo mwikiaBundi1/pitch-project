@@ -28,4 +28,4 @@ def new_info():
 
          new_pitch.save_pitch()
          return redirect(url_for(main.index))
-    return render_template('pitch.html', pitch_entry= form)
+    return render_template('preach.html', pitch_entry= form)
