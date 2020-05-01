@@ -13,8 +13,8 @@ manager.add_command('server', Server)
 def shell():
     return dict(app = app, User=User, db= db)
 
-# migrate = Migrate(app, db)
-# manager.add_command('db', MigrateCommand)
+migrate = Migrate(app, db)
+manager.add_command('db', MigrateCommand)
 
 if __name__ == '__main__':
     manager.run()
