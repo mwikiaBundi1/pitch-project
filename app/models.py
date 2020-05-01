@@ -1,13 +1,13 @@
 from . import db
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
-from . import login_manager
+# from . import login_manager
 from datetime import datetime
 
-@login_manager.user_loader
+# @login_manager.user_loader
 
-def user_load(user_id):
-    return User.query.get(int(user_id))
+# def user_load(user_id):
+#     return User.query.get(int(user_id))
 
 
 class User(UserMixin, db.Model):
@@ -20,4 +20,6 @@ class User(UserMixin, db.Model):
     profile_pic_path = db.Column(db.String(255))
     pitch = db.relationship('1, 2 and .. GO!', backref= author, lazy = 'dynamic')
     comments = db.relationship('Say Something', backref=author, lazy= 'dynamic')
-    
+
+    def __repr__(self):
+        return f'Author {self.author}'
