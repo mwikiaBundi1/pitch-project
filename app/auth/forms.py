@@ -17,8 +17,8 @@ class RegistrationForm(FlaskForm):
         if User.query.filter_by(author=data_field.data).first():
             raise ValidationError('This name is in use, choose another')
 
-    class LoginForm(FlaskForm):
-        email = StringField('Enter Email Address', validators=[Required(), Email()])
-        password = PasswordField('Enter Your Password', validators=[Required()])
-        remember = BooleanField('Remember me')
-        submit = SubmitField('SIGN IN')
+class LoginForm(FlaskForm):
+    email = StringField('Enter Email Address', validators=[Required(), Email()])
+    password = PasswordField('Enter Your Password', validators=[Required()])
+    remember = BooleanField('Remember me')
+    submit = SubmitField('SIGN IN')
