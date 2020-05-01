@@ -29,3 +29,7 @@ def new_info():
          new_pitch.save_pitch()
          return redirect(url_for(main.index))
     return render_template('preach.html', pitch_entry= form)
+
+@main.route('/categories/<cate>')
+def category(cate):
+    
