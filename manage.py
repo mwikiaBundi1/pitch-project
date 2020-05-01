@@ -11,7 +11,7 @@ manager.add_command('server', Server)
 @manager.shell
 
 def shell():
-    return dict(app = app, User=User)
+    return dict(app = app, User=User, db= db)
 
 # migrate = Migrate(app, db)
 # manager.add_command('db', MigrateCommand)
