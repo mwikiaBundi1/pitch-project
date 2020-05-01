@@ -7,4 +7,4 @@ from ..import db, photos
 from .forms import InForm, lamentform, UpdateProfile
 
 
-
+@main.route

@@ -5,10 +5,10 @@ from wtforms.validators import Required
 class InForm(FlaskForm):
     inform = TextAreaField('iNFORM')
     title = StringField('Title')
-    category = SelectField(u'Ford category', choices=[('life', 'life', ('code', 'code' ('funny', 'funny')))])
-    submit = SubmitField('submit')
+    category = SelectField(u'info category', choices=[('life', 'life'), ('coding', 'coding'), ('funny', 'funny')])
+    submit = SubmitField('Submit')
 
-
+ 
 class lamentform(FlaskForm):
     comment = TextAreaField('lament')
     submit = SubmitField('Post lamentations')
