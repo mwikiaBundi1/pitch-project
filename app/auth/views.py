@@ -24,6 +24,26 @@ def login():
 
 @auth.route('/register', methods=['GET', 'POST'])
 def register():
-    form 
+    form = RegistrationForm()
+    if form.validate_on_submit():
+        user = User(email = form.email.data, author = form.author.data, password=form.password.data)
+
+        db.session.add(user)
+        db.sesion.commit()
+
+        mail_message('Welcome to GoneIn60', 'email/welcome_user', user.email, user=user)
+
+        title = 'New Account'
+        return redirect(url_for('auth.login'))
+    return render_template('auth/register.html', register= form)
+
+
+@auth.route('/logout')
+@login_required
+def logout():
+    login_user()
+    return redirect(url_for('main.index'))
+
+    
 
 
