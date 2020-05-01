@@ -11,7 +11,7 @@ from datetime import datetime
 
 
 class User(UserMixin, db.Model):
-    __table__ = 'users'
+    __tablename__ = 'users'
     id = db.Column(db.Integer, primary_key = True)
     author = db.Column(db.String(255))
     email = db.Column(db.String(255), unique = True, index = True)
