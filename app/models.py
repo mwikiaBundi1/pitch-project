@@ -18,7 +18,7 @@ class User(UserMixin, db.Model):
     password_hash = db.Column(db.String(255))
     bio = db.Column(db.String(255))
     profile_pic_path = db.Column(db.String(255))
-    pitch = db.relationship('info', backref= 'author', lazy = 'dynamic')
+    pitch = db.relationship('Mininfo', backref= 'author', lazy = 'dynamic')
     comments = db.relationship('Comments', backref='author', lazy= 'dynamic')
 
     @property
@@ -41,7 +41,7 @@ class Mininfo(db.Model):
     title = db.Column(db.String(255))
     info = db.Column(db.String(255))
     category = db.Column(db.String(255))
-    date = db.Column(db.String(255), default=datetime.utcnow)
+    date = db.Column(db.String(250), default=datetime.utcnow)
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
     comments = db.relationship('Comments', backref='title', lazy='dynamic')
 
@@ -53,10 +53,10 @@ class Mininfo(db.Model):
 
     @classmethod
     def get_info(cls, cate):
-        infor = Mininfo.query.filter_by(category=cate).all()
-        return infor
+        pitch = Mininfo.query.filter_by(category=cate).all()
+        return pitch
     def __repr__(self):
-        return f"info ('{self.info}', '{self.date}')"
+        return f"Mininfo ('{self.pitch}', '{self.date}')"
 
 
 class Comments(db.Model):

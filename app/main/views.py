@@ -14,21 +14,21 @@ def index ():
     title = 'Ready? Go!'
     return render_template('index.html', message=message, title= title)
 
-@main.route('/info', methods = ['GET', 'POST'])
+@main.route('/pitch/', methods = ['GET', 'POST'])
 @login_required
 def new_info():
     form = InForm
     if form.validate_on_submit():
         category = form.category.data
-        info = form.info.data
+        pitch = pitch.info.data
         title = form.title.data
 
-        new_info = InForm(title = title, category=category, info=info, user_id = current_user.id)
+        new_info = InForm(title = title, category=category, pitch=pitch, user_id = current_user.id)
         title = 'New Pitch'
 
         new_pitch.save_pitch()
         return redirect(url_for(main.index))
-    return render_template('preach.html', pitch_entry= form)
+    return render_template('pitch.html', pitch_entry= form)
 
 @main.route('/categories/<cate>')
 def category(cate):
