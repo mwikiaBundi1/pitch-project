@@ -18,8 +18,8 @@ class User(UserMixin, db.Model):
     password_hash = db.Column(db.String(255))
     bio = db.Column(db.String(255))
     profile_pic_path = db.Column(db.String(255))
-    pitch = db.relationship('1, 2 and .. GO!', backref= author, lazy = 'dynamic')
-    comments = db.relationship('Say Something', backref=author, lazy= 'dynamic')
+    # pitch = db.relationship('1, 2 and .. GO!', backref= author, lazy = 'dynamic')
+    # comments = db.relationship('Say Something', backref=author, lazy= 'dynamic')
 
     def __repr__(self):
         return f'Author {self.author}'
