@@ -33,9 +33,9 @@ def new_info():
 @main.route('/categories/<cate>')
 def category(cate):
     def category(cate):
-    '''
-    function to return the pitches by category
-    '''
+        '''
+        function to return the comments
+        '''
     category = Mininfo.get_info(cate)
     # print(category)
     title = f'{cate}'
