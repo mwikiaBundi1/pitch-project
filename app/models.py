@@ -18,8 +18,8 @@ class User(UserMixin, db.Model):
     password_hash = db.Column(db.String(255))
     bio = db.Column(db.String(255))
     profile_pic_path = db.Column(db.String(255))
-    pitch = db.relationship('1, 2 and .. GO!', backref= author, lazy = 'dynamic')
-    comments = db.relationship('Say Something', backref=author, lazy= 'dynamic')
+    pitch = db.relationship('info', backref= 'author', lazy = 'dynamic')
+    comments = db.relationship('Comments', backref='author', lazy= 'dynamic')
 
     @property
     def password(self):
@@ -32,7 +32,7 @@ class User(UserMixin, db.Model):
     def verify_password(self, password):
         return check_password_hash(self.password_hash, password)
 
-      def __repr__(self):
+    def __repr__(self):
         return f'Author {self.author}'
 
 class Mininfo(db.Model):
@@ -60,12 +60,12 @@ class Mininfo(db.Model):
 
 
 class Comments(db.Model):
-    __table__ = 'comments'
+    __tablename__ = 'comments'
     id = db.Column(db.Integer, primary_key = True)
     comment = db.Column(db.String(255))
     posted = db.Column(db.DateTime(250), default = datetime.utcnow)
-    info_id = db.Column(db.Integer, ForeignKey('info.id'))
-    user_id = db.Column(db.Integer, ForeignKey('users.id'))
+    info_id = db.Column(db.Integer, db.ForeignKey('info.id'))
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
 
     def save_comment(self):
         db.session.add(self)
@@ -78,7 +78,9 @@ class Comments(db.Model):
         return comments
 
     def __repr__(self):
+
         return f"Comments('{self.comment}', '{self.posted}')"
+
 
 
 
