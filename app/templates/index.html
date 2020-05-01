@@ -1,0 +1,21 @@
+
+
+
+<link rel="stylesheet" href="{{url_for('static', filename='css/index.css')}}">
+{% block content%}
+<body>
+    <br>
+    <div class="d-flex justify-content-center">
+        <div class="card-groups">
+            <div class="card border-info mb-3">
+                <div class="card-body text info">
+                    <h3 class="card-title">Pitches About</h3>
+                    <p class="card-text">Gives a pitch</p>
+                    <button type="button" class="btn btn-sm danger"><a href="../pitch">Add a pitch</a></button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    {% endblock %}
+</body>

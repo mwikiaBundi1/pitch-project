@@ -23,13 +23,12 @@ def new_info():
         info = form.info.data
         title = form.title.data
 
-        new_info = InForm(title = title. category=category, info=info, user_id = current_user.id)
-         title = 'New Pitch'
+        new_info = InForm(title = title, category=category, info=info, user_id = current_user.id)
+        title = 'New Pitch'
 
-         new_pitch.save_pitch()
-         return redirect(url_for(main.index))
+        new_pitch.save_pitch()
+        return redirect(url_for(main.index))
     return render_template('preach.html', pitch_entry= form)
 
-@main.route('/categories/<cate>')
-def category(cate):
-    
+# @main.route('/categories/<cate>')
+# def category(cate):
