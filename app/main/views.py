@@ -16,19 +16,25 @@ def index ():
 
 @main.route('/pitch/', methods = ['GET', 'POST'])
 @login_required
-def new_info():
-    form = InForm
+def new_pitch():
+
+    form = InForm()
+
     if form.validate_on_submit():
         category = form.category.data
-        pitch = pitch.info.data
-        title = form.title.data
+        pitch= form.info.data
+        title=form.title.data
 
-        new_info = InForm(title = title, category=category, pitch=pitch, user_id = current_user.id)
-        title = 'New Pitch'
+        # Updated pitchinstance
+        new_pitch = Pitches(title=title,category= category,pitch= pitch,user_id=current_user.id)
+
+        title='New Pitch'
 
         new_pitch.save_pitch()
-        return redirect(url_for(main.index))
-    return render_template('pitch.html', pitch_entry= form)
+
+        return redirect(url_for('main.index'))
+
+    return render_template('pitch.html',pitch_entry= form)
 
 @main.route('/categories/<cate>')
 def category(cate):
