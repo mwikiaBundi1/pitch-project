@@ -39,14 +39,14 @@ class Mininfo(db.Model):
     __tablename__ = 'info'
     id = db.Column(db.Integer, primary_key = True)
     title = db.Column(db.String(255))
-    info = db.Column(db.String(255))
+    pitch = db.Column(db.String(255))
     category = db.Column(db.String(255))
     date = db.Column(db.String(250), default=datetime.utcnow)
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
     comments = db.relationship('Comments', backref='title', lazy='dynamic')
 
 
-    def save_info(self):
+    def save_pitch(self):
         db.session.add(self)
         db.session.commit()
 

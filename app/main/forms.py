@@ -3,7 +3,7 @@ from wtforms import SubmitField, PasswordField, StringField, SelectField,TextAre
 from wtforms.validators import Required
 
 class InForm(FlaskForm):
-    inform = TextAreaField('Tell it')
+    pitch = TextAreaField('Tell it')
     title = StringField('Title')
     category = SelectField(u'info category', choices=[('life', 'life'), ('coding', 'coding'), ('funny', 'funny'), ('love', 'love'), ('philosophy', 'philosophy'), ('wisdom', 'wisdom')])
     submit = SubmitField('Submit')
