@@ -11,8 +11,11 @@ class Config:
     MAIL_PASSWORD = os.environ.get('MAIL_PASSWORD')
     SUBJECT_PREFIX = 'Gone in 60 seconds'
     SENDER_EMAIL = 'Dankariuki0101@gmail.com'
+    SIMPLEMDE_JS_IIFE = True
+    SIMPLEMDE_USE_CDN = True
+
 class prodConfig(Config):
-    SQLALCHEMY_DATABASE_URI = os.environ.get('DATABAASE_URL')
+    SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL')
 
 
 class DevConfig(Config):
@@ -20,7 +23,7 @@ class DevConfig(Config):
     DEBUG = True
 
 class TestConfig(Config):
-    SQLALCHEMY_DATABASE_URI= 'postgresql+psycopg2://root:buttonupd@localhost/pitch'
+    SQLALCHEMY_DATABASE_URI= 'postgresql+psycopg2://root:buttonupd@localhost/pitch2'
 
 config_options = {
     'development': DevConfig,

@@ -6,7 +6,7 @@ from . forms import RegistrationForm, LoginForm
 from .. import db
 from ..email import mail_message
 
-@auth.route('\login', methods=['GET', 'POST'])
+@auth.route('/login', methods=['GET', 'POST'])
 
 def login():
     login_form = LoginForm()
@@ -29,13 +29,13 @@ def register():
         user = User(email = form.email.data, author = form.author.data, password=form.password.data)
 
         db.session.add(user)
-        db.sesion.commit()
+        db.session.commit()
 
         mail_message('Welcome to GoneIn60', 'email/welcome_user', user.email, user=user)
 
         title = 'New Account'
         return redirect(url_for('auth.login'))
-    return render_template('auth/register.html', register= form)
+    return render_template('auth/register.html', registration_form= form)
 
 
 @auth.route('/logout')
