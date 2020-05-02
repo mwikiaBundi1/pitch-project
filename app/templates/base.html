@@ -2,6 +2,8 @@
 
 {% block navbar %}
     {% include 'navbar.html' %}
+    {{ simplemde.css}}
+    {{ simplemde.js }}
 {% endblock %}
 
 <!DOCTYPE html>
@@ -11,7 +13,7 @@
    {% if title %}
    <title>{{ title }}</title>
    {% else %}
-   <title>Pitch It Up!! </title>
+   <title>If you had one chance!! </title>
    {% endif %}
  </head>
  <body>

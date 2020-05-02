@@ -5,7 +5,7 @@ from ..models import User, Comments, Mininfo
 from ..main import main
 from ..import db, photos
 from .forms import InForm, lamentform, UpdateProfile
-
+import markdown2
 
 @main.route('/')
 def index ():
