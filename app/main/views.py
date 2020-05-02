@@ -101,8 +101,8 @@ def comment(id):
 @main.route('/new_comment/<int:info_id>', methods = ['GET', 'POST'])
 @login_required
 def new_comment(info_id):
-    pitch = Mininfo.query.filter_by(id = info_id).first()
-    form = lamentform
+    info = Mininfo.query.filter_by(id = info_id).first()
+    form = lamentform()
 
     if form.validate_on_submit():
         comment = form.comment.data
