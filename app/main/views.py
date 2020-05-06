@@ -10,8 +10,8 @@ import markdown2
 @main.route('/')
 def index ():
 
-    message = 'Gone in 60'
-    title = 'Ready? Go!'
+    message = 'pitches'
+    title = 'welcome to my pith!'
     return render_template('index.html', message=message, title= title)
 
 @main.route('/pitch/', methods = ['GET', 'POST'])

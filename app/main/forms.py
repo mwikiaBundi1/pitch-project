@@ -5,7 +5,7 @@ from wtforms.validators import Required
 class InForm(FlaskForm):
     pitch = TextAreaField('Tell it')
     title = StringField('Title')
-    category = SelectField(u'info category', choices=[('life', 'life'), ('coding', 'coding'), ('funny', 'funny'), ('love', 'love'), ('philosophy', 'philosophy'), ('wisdom', 'wisdom')])
+    category = SelectField(u'info category', choices=[('sports', 'sports'), ('network', 'network'), ('movies', 'movies'), ('politics', 'politics'), ('sales', 'sales')])
     submit = SubmitField('Submit')
 
  
